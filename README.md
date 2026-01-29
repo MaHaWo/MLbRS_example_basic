@@ -35,8 +35,9 @@ uv install
 ```
 
 - run the example: 
+
 ```python3
-python3 ./src/main_basic.py --config ./configs/config_basic.yaml
+python3 ./src/main.py --config ./configs/config_basic.yaml
 ```
 
 you then should see your model train and get a data/MNIST directory and a results/experiment_YYYYMMDD_HHmmSS directory containing the results and the last model snapshot.
