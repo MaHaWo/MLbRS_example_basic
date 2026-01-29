@@ -63,7 +63,7 @@ if __name__ == "__main__":
     # load config
     config = load_config(args.config)
 
-    # Initialize model and dataset from config
+    # Initialize model and torchdataset from config
     if "model" in config:
         model = mlbrs.model.Model.from_config(config["model"])
         print("Model initialized:", model)
@@ -71,16 +71,16 @@ if __name__ == "__main__":
         raise ValueError("Model configuration not found in the config file.")
 
     if "training_dataset" in config:
-        training_dataset = mlbrs.dataset.Dataset.from_config(config["training_dataset"])
-        print("Dataset initialized with length:", len(training_dataset))
+        training_dataset = mlbrs.dataset.TorchDataset.from_config(config["training_dataset"])
+        print("TorchDataset initialized with length:", len(training_dataset))
     else:
-        raise ValueError("Dataset configuration not found in the config file.")
+        raise ValueError("TorchDataset configuration not found in the config file.")
 
     if "test_dataset" in config:
-        test_dataset = mlbrs.dataset.Dataset.from_config(config["test_dataset"])
-        print("Test Dataset initialized with length:", len(test_dataset))
+        test_dataset = mlbrs.dataset.TorchDataset.from_config(config["test_dataset"])
+        print("Test TorchDataset initialized with length:", len(test_dataset))
     else:
-        raise ValueError("Test Dataset configuration not found in the config file.")
+        raise ValueError("Test TorchDataset configuration not found in the config file.")
 
     if "training" not in config:
         raise ValueError("Training configuration not found in the config file.")
